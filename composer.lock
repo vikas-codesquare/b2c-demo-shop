@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "637e2cc25aa7edd7d2042dc9b92d848b",
+    "content-hash": "4650ffef9ae64736d76c973216c91852",
     "packages": [
         {
             "name": "async-aws/core",
@@ -188,6 +188,81 @@
                 }
             ],
             "time": "2021-12-20T13:18:18+00:00"
+        },
+        {
+            "name": "avalara/avataxclient",
+            "version": "21.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avadev/AvaTax-REST-V2-PHP-SDK.git",
+                "reference": "fc047aa29ef57b136607fa2ff156de2638aacf20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avadev/AvaTax-REST-V2-PHP-SDK/zipball/fc047aa29ef57b136607fa2ff156de2638aacf20",
+                "reference": "fc047aa29ef57b136607fa2ff156de2638aacf20",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6|~7",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "exclude-from-classmap": [
+                    "src/AvaTaxClient.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Avalara Developer Relations",
+                    "homepage": "https://developer.avalara.com"
+                },
+                {
+                    "name": "Community Developer Forum",
+                    "homepage": "https://community.avalara.com"
+                },
+                {
+                    "name": "Ted Spence",
+                    "email": "ted.spence@avalara.com"
+                },
+                {
+                    "name": "Bob Maidens",
+                    "email": "bob.maidens@avalara.com"
+                },
+                {
+                    "name": "Genevieve Conty",
+                    "email": "genevieve.conty@avalara.com"
+                }
+            ],
+            "description": "Client library for Avalara's AvaTax suite of business tax calculation and processing services. Uses the REST v2 API.",
+            "homepage": "https://developer.avalara.com/",
+            "keywords": [
+                "AvaTax",
+                "avalara",
+                "ecommerce",
+                "sales compliance",
+                "tax",
+                "tax calculation",
+                "taxes"
+            ],
+            "support": {
+                "docs": "https://developer.avalara.com",
+                "forum": "https://community.avalara.com",
+                "issues": "https://github.com/avadev/AvaTax-REST-V2-PHP-SDK/issues",
+                "source": "https://github.com/avadev/AvaTax-REST-V2-PHP-SDK"
+            },
+            "time": "2022-01-07T18:15:52+00:00"
         },
         {
             "name": "aws/aws-crt-php",
@@ -4449,6 +4524,118 @@
                 "source": "https://github.com/Seldaek/signal-handler/tree/1.3.0"
             },
             "time": "2022-02-17T20:38:26+00:00"
+        },
+        {
+            "name": "spryker-eco/avalara-tax",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-eco/avalara-tax.git",
+                "reference": "f24548e1a9661eab7541b73c91b8b4279ebe6e98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-eco/avalara-tax/zipball/f24548e1a9661eab7541b73c91b8b4279ebe6e98",
+                "reference": "f24548e1a9661eab7541b73c91b8b4279ebe6e98",
+                "shasum": ""
+            },
+            "require": {
+                "avalara/avataxclient": "^21.1.1",
+                "php": ">=7.4",
+                "spryker-eco/avalara-tax-extension": "^0.1.0",
+                "spryker/calculation-extension": "^1.0.0",
+                "spryker/cart-extension": "^4.2.0",
+                "spryker/checkout-extension": "^1.2.0",
+                "spryker/checkout-rest-api-extension": "^1.5.0",
+                "spryker/kernel": "^3.30.0",
+                "spryker/money": "^2.0.0",
+                "spryker/product": "^6.0.0",
+                "spryker/product-extension": "^1.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/sales": "^11.0.0",
+                "spryker/stock": "^8.3.0",
+                "spryker/store": "^1.0.0",
+                "spryker/transfer": "^3.25.0",
+                "spryker/util-encoding": "^2.0.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "*",
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker-eco/avalara-tax-product-option": "If you want to calculate product option taxes using Avalara tax provider.",
+                "spryker-eco/avalara-tax-shipment": "If you want to calculate shipment taxes using Avalara tax provider.",
+                "spryker/calculation": "If you want to use Calculation plugins.",
+                "spryker/cart": "If you want to use Cart plugins.",
+                "spryker/checkout": "If you want to use Checkout plugins.",
+                "spryker/checkout-rest-api": "If you want to use CheckoutRestApi plugins."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerEco\\": "src/SprykerEco/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "AvalaraTax module",
+            "support": {
+                "issues": "https://github.com/spryker-eco/avalara-tax/issues",
+                "source": "https://github.com/spryker-eco/avalara-tax/tree/0.1.1"
+            },
+            "time": "2022-08-08T14:51:40+00:00"
+        },
+        {
+            "name": "spryker-eco/avalara-tax-extension",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-eco/avalara-tax-extension.git",
+                "reference": "f69bff35113f159ca3846cc91963fc03bec16d8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-eco/avalara-tax-extension/zipball/f69bff35113f159ca3846cc91963fc03bec16d8d",
+                "reference": "f69bff35113f159ca3846cc91963fc03bec16d8d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "*",
+                "spryker/code-sniffer": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerEco\\": "src/SprykerEco/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "AvalaraTaxExtension module",
+            "support": {
+                "issues": "https://github.com/spryker-eco/avalara-tax-extension/issues",
+                "source": "https://github.com/spryker-eco/avalara-tax-extension/tree/0.1.0"
+            },
+            "time": "2021-05-20T14:32:19+00:00"
         },
         {
             "name": "spryker-eco/loggly",
