@@ -11,26 +11,29 @@
 } %}
 
 {% block body %}
-    {% set benefits = [
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% set benefits = [
         'global.benefit.free_returns',
         'global.benefit.warranty',
         'global.benefit.competitive_prices'
     ] %}
 
-    {% widget 'AgentControlBarWidget' only %}{% endwidget %}
+{% widget 'AgentControlBarWidget' only %}{% endwidget %}
 
-    {# <div class="{{ config.name }}__top">
-        <div class="container grid grid--justify">
-            {% include molecule('panel-info') with {
+{# <div class="{{ config.name }}__top">
+	<div class="container grid grid--justify">
+		{% include molecule('panel-info') with {
                 class: 'grid grid--justify',
                 data: {
                     info: benefits,
                 },
             } only %}
 
-            <div class="col {{ config.name }}__currency-lang">
-                <div class="{{ config.name }}__select">
-                    {% widget 'LanguageSwitcherWidget' args [
+		<div class="col {{ config.name }}__currency-lang">
+			<div class="{{ config.name }}__select">
+				{% widget 'LanguageSwitcherWidget' args [
                         app.request.pathInfo,
                         app.request.queryString,
                         app.request.requestUri
@@ -39,84 +42,92 @@
                             additionalClassName: config.name,
                         },
                     } only %}{% endwidget %}
-                </div>
+			</div>
 
-                <div class="{{ config.name }}__select">
-                    {%- widget 'CurrencyWidget' with {
+			<div class="{{ config.name }}__select">
+				{%- widget 'CurrencyWidget' with {
                         data: {
                             additionalClassName: config.name,
                         },
                     } only -%}{%- endwidget -%}
-                </div>
-            </div>
-        </div>
-    </div> #}
+			</div>
+		</div>
+	</div>
+</div> #}
 
-    <div class="container">
-        <div class="{{ config.name }}__search-overlay js-suggest-search__overlay">
-            <div class="{{ config.name }}__search-overlay-container">
-                <div class="{{ config.name }}__search-close js-suggest-search__hide">
-                    {% include atom('icon') with {
-                        class: config.name ~ '__search-close-icon',
-                        data: {
-                            name: 'close'
-                        }
-                    } only %}
-                </div>
+<div class="">
+	{# <div class="{{ config.name }}__search-overlay js-suggest-search__overlay">
+	        <div class="{{ config.name }}__search-overlay-container">
+	            <div class="{{ config.name }}__search-close js-suggest-search__hide">
+	                {% include atom('icon') with {
+	                    class: config.name ~ '__search-close-icon',
+	                    data: {
+	                        name: 'close'
+	                    }
+	                } only %}
+	            </div>
+	
+	            {% if data.showSearchForm %}
+	                {% include molecule('search-form') with {
+	                    attributes: {
+	                        'data-search-id': 'desktop'
+	                    }
+	                } only %}
+	            {% endif %}
+	        </div>
+	        <div class="{{ config.name }}__overlay-shadow js-suggest-search__hide"></div>
+	    </div> #}
 
-                {% if data.showSearchForm %}
-                    {% include molecule('search-form') with {
-                        attributes: {
-                            'data-search-id': 'desktop'
-                        }
-                    } only %}
-                {% endif %}
-            </div>
-            <div class="{{ config.name }}__overlay-shadow js-suggest-search__hide"></div>
-        </div>
+	{% block additionalLink %}{% endblock %}
 
-        {% block additionalLink %}{% endblock %}
-
-        {# <div class="{{ config.name }}__row {{ config.name }}__navigation-top grid grid--middle grid--justify">
-            <div class="col col--sm-12 col--lg-4 is-hidden-sm-md">
-                {% if data.showSearchForm %}
-                    <div class="{{ config.name }}__search-open js-suggest-search__show">
-                        {% include atom('icon') with {
-                            class: config.name ~ '__search-open-icon',
-                            data: {
-                                name: 'search'
-                            }
-                        } only %}
-                    </div>
-                {% endif %}
-        </div> #}
-
-            <div class="col col--sm-12 col--lg-4">
-                {% include molecule('logo') with {
+	<div class="{{ config.name }}__row {{ config.name }}__navigation-top grid justify-content-around">
+		<div class="col col--sm-12 col--lg-4 is-hidden-sm-md grid">
+			{% include molecule('logo') with {
                     modifiers: modifiers,
-                    class: 'grid grid--center'
+                    class: 'grid grid--left'
                 } only %}
-            </div>
+		{# {% if data.showSearchForm %} #}
+			{# <div class="{{ config.name }}__search-open js-suggest-search__show">
+						                {% include atom('icon') with {
+						                    class: config.name ~ '__search-open-icon',
+						                    data: {
+						                        name: 'search'
+						                    }
+						                } only %}
+						                </div>
+						            {% endif %} #}
+		</div>
 
-            {# <div class="col col--lg-4 is-hidden-sm-md">
-                {% if data.showNavigation %}
-                    {% include organism('navigation-top') only %}
-                {% endif %}
-            </div>
-        </div> #}
-        {# {% if data.showNavigation %}
-            <div class="is-hidden-lg-xl">
-                <div class="{{ config.name }}__row {{ config.name }}__navigation-top">
-                    {% include molecule('navigation-top-mobile') only %}
-                </div>
-            </div>
-        {% endif %}
-    </div> #}
-    {% if data.showNavigation %}
-        <div class="{{ config.name }}__row {{ config.name }}__navigation-main is-hidden-sm-md">
-            {% block mainNavigation %}
-                {% widget 'NavigationWidget' args ['MAIN_NAVIGATION_DESKTOP', 'navigation-header'] %}{% endwidget %}
-            {% endblock %}
-        </div>
-    {% endif %}
-{% endblock %}
+		<div class="custom-navigation-cart grid grid--right grid-justify col col--sm-12 col--lg-8">
+			<div class="col col--sm-12 col--lg-4">
+				{% if data.showNavigation %}
+					<div class="{{ config.name }}__row {{ config.name }}__navigation-main is-hidden-sm-md">
+						{% block mainNavigation %}
+							{% widget 'NavigationWidget' args ['MAIN_NAVIGATION_DESKTOP_CUSTOM', 'navigation'] %}{% endwidget %}
+						{% endblock %}
+					</div>
+				{% endif %}
+			</div>
+
+			<div class="col col--lg-4 is-hidden-sm-md">
+				{% if data.showNavigation %}
+					{% include organism('navigation-top') only %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	{% if data.showNavigation %}
+		<div class="is-hidden-lg-xl">
+			<div class="{{ config.name }}__row {{ config.name }}__navigation-top">
+				{% include molecule('navigation-top-mobile') only %}
+			</div>
+		</div>
+	{% endif %}
+</div>
+{# {% if data.showNavigation %}
+		<div class="{{ config.name }}__row {{ config.name }}__navigation-main is-hidden-sm-md">
+			{% block mainNavigation %}
+				{% widget 'NavigationWidget' args ['MAIN_NAVIGATION_DESKTOP', 'navigation-header'] %}{% endwidget %}
+			{% endblock %}
+		</div>
+	{% endif %} #}{% endblock %}

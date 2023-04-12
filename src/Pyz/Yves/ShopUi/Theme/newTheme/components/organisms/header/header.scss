@@ -190,3 +190,13 @@
 }
 
 @include shop-ui-header();
+.custom-navigation-cart{
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+nav ul li a {
+    padding: 0 1rem;
+    color: #fff;
+    font-size: .875rem;
+}
