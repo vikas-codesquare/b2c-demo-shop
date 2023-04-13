@@ -1,0 +1,15 @@
+{% extends model('component') %}
+
+{% define config = {
+    name: 'product-custom-image',
+    tag: 'product-custom-image',
+} %}
+
+{% define data = {
+    imageSrc: required,
+    imageTitle: required
+} %}
+
+{% block body %}
+    <img class="{{config.name}}__image" width="768" height="440" src="{{ data.imageSrc }}" data-src="{{ data.imageSrc }}" alt="{{ data.imageTitle }}">
+{% endblock %}

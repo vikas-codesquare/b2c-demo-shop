@@ -6,6 +6,24 @@
         @include helper-breakpoint-media-min($md-min) {
             padding: 0 rem(15) rem(50);
         }
+        &__content{
+            height: 250px;
+            padding: 10px;
+        }
+        &__name{
+            // padding: 28px;
+            height: 80px;
+        }
+
+        &__description{
+            height: 50px;
+
+        }
+
+        &__price{
+            height: 50px;
+
+        }
 
         &__image-wrap {
             @include helper-effect-transition(box-shadow);
@@ -73,13 +91,17 @@
         &__container {
             position: relative;
             display: block;
-            color: $setting-color-black;
-
+            background-color: #ddd;
+            border-radius: 12px;
+            height: 30rem;
             &--title-top {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 height: 100%;
+            }
+            &:hover{
+                box-shadow: 0 0 20px rgba(33,33,33,.2);
             }
 
             .no-touch &:hover {
@@ -110,7 +132,6 @@
 
         &__info {
             display: block;
-            margin: 0 rem(10) rem(3);
             font: fw(medium) rem(13) $setting-font-family-additional;
             letter-spacing: rem(0.3);
             color: $setting-color-black;
@@ -118,7 +139,6 @@
 
             @include helper-breakpoint-media-min($md-min) {
                 font-size: rem(16);
-                margin: 0 rem(11);
                 flex-wrap: nowrap;
             }
 
