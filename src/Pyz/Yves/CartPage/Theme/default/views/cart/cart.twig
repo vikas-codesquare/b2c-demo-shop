@@ -16,6 +16,9 @@
 {% endblock %}
 
 {% block content %}
+        {# {{dump(data.cart.items)}} #}
+        {% widget 'CartItemNoteFormWidget'  args [data.cart.items[0] , data.cart] only %}{% endwidget %}
+
     {% if data.cart.idQuote is not empty %}
         <div>
         {% widget 'CreateShoppingListFromCartWidget' args [data.cart.idQuote] only %}{% endwidget %}
