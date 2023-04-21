@@ -1,5 +1,3 @@
-nch’s Jenkinsfile as follows:
-
 pipeline {
     agent any
     stages {
