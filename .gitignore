@@ -51,7 +51,10 @@ config/Yves/cache_bust.php
 /public/*/dist/
 
 # docker stuff
-
+/docker/
+/.docker-sync/
+/.unison*
+/deploy.local.yml
 
 # profiling
 /profiler
